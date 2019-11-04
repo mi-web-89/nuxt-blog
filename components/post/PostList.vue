@@ -1,31 +1,16 @@
 <template>
   <section class="featured-posts row">
-    <div class="col-12 col-md-4">
       <postPreview
-        id="1"
-        title="first topic"
-        thumbnail="image-not-found-sm.png"
-        previewText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus"
+        class="col-12 col-md-4"
+        v-for="post in posts"
+        :key= post.id
+        :id="post.id"
+        :is-admin="isAdmin"
+        :title="post.title"
+        :thumbnail="post.thumbnail"
+        :previewText="post.previewText"
+        :author="post.author"
       ></postPreview>
-    </div>
-
-    <div class="col-md-4 col-12">
-      <postPreview
-        id="2"
-        title="second topic"
-        thumbnail="image-not-found-sm.png"
-        previewText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus"
-      ></postPreview>
-    </div>
-
-    <div class="col-md-4 col-12">
-      <postPreview
-        id="3"
-        title="three topic"
-        thumbnail="image-not-found-sm.png"
-        previewText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus"
-      ></postPreview>
-    </div>
   </section>
 </template>
 
@@ -35,6 +20,16 @@ import postPreview from "@/components/post/PostPreview";
 export default {
   components: {
     postPreview
-  }
-};
+  },
+  props: {
+    isAdmin: {
+      type: Boolean,
+      default: false
+    },
+    posts: {
+      type: Array,
+      required: true
+    }
+  }  
+}
 </script>

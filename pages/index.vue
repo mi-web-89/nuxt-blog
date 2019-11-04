@@ -5,47 +5,46 @@
     </section>
 
     <div class="container">
-      <section class="featured-posts row">
-        <div class="col-12 col-md-4">
-          <postPreview
-            id="1"
-            title="first topic"
-            thumbnail="image-not-found-sm.png"
-            previewText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus"
-          ></postPreview>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <postPreview
-            id="2"
-            title="second topic"
-            thumbnail="image-not-found-sm.png"
-            previewText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus"
-          >
-          </postPreview>
-        </div>
-
-        <div class="col-md-4 col-12">
-          <postPreview
-            id="3"
-            title="three topic"
-            thumbnail="image-not-found-sm.png"
-            previewText="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus"
-          >
-          </postPreview>
-        </div>
-      </section>
+      <post-list :posts="posts"></post-list>
     </div>
   </div>
 </template>
 
 <script>
-import PostPreview from "@/components/post/PostPreview";
+import PostList from "@/components/post/PostList"
 
 export default {
   components: {
-    PostPreview
+    PostList
+  },
+  computed: {
+    posts () {
+      return this.$store.getters.loadedPosts
+    }
   }
+
+  // must be promised, using callback for tricky promise
+  // asyncData(context, callback) { 
+    // console.log("asyncData is executed")
+    // console.log(context)
+  //   setTimeout(() => {
+  //    // callback : fist param is error => 
+  //    // when promise get error: catch(err => {context.error(new Error)})
+  //    callback(null, { //write data here
+  //      posts: [
+  //         {
+  //           id: "1",
+  //           title: "Title 1",
+  //           thumbnail: "image-not-found-sm.png",
+  //           previewText:
+  //             "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus assumenda \ 
+  //              error quas deleniti eius? Suscipit, numquam? Quis aliquid non animi numquam amet voluptas dolorum \ 
+  //              sunt aspernatur commodi?"
+  //         }         
+  //      ]
+  //     })
+  //   }, 1500)
+  // }
 };
 </script>
 

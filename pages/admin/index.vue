@@ -1,20 +1,28 @@
 <template>
   <div class="admin-page">
     <div class="border-bottom text-center pt-2 pb-2 mb-2">
-      <nuxt-link to="/admin/new-post" tag="button" class="btn btn-primary">Create Post</nuxt-link>
+     <app-button @click="$router.push('/admin/new-post')">create page</app-button>
     </div>
     <div class="container">
-      <post-list></post-list>
+      <post-list isAdmin :posts="loadedPosts"></post-list>
     </div>
   </div>
 </template>
 
 <script>
 import PostList from "@/components/post/PostList";
+import AppButton from "@/components/ui/AppButton";
 
 export default {
+  layout: 'admin',
   components: {
-    PostList
+    PostList,
+    AppButton
+  },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   }
 };
 </script>

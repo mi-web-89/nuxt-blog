@@ -1,14 +1,11 @@
 <template>
   <div class="post-priview border-bottom">
-    <nuxt-link :to="'posts/' + id">
+    <nuxt-link :to="postLink">
       <article class="post-priview">
         <div class="post-thumbnail text-center">
-          <img
-            :src="`images/${thumbnail}`"
-            :alt="thumbnail"
-            width="100%"
-            height="auto"
-          />
+          <img :src="thumbnail" :alt="image-thumbnail" width="212px" height="auto" />
+          
+          <!-- <img :src="`images/${thumbnail}`" :alt="thumbnail" width="100%" height="auto" /> -->
           <!-- :src="'~/assets/images/' + thumbnail + '.png'" -->
           <!-- ~/assets/images/image-not-found-sm.png -->
         </div>
@@ -30,6 +27,10 @@ export default {
       type: String,
       required: true
     },
+    isAdmin: {
+      type: Boolean,
+      required: true
+    },
     title: {
       type: String,
       required: true
@@ -41,12 +42,15 @@ export default {
     thumbnail: {
       type: String,
       required: true
+    },
+    author: {
+      type: String,
+      required: true
     }
   },
   computed: {
-    imgThumbnail(img) {
-      const images = require.context('~/assets/images/', false, /\.png$/)
-      return images('./' + img + ".png")
+    postLink() {
+      return this.isAdmin ? "/admin/" + this.id : "/posts/" + this.id;
     }
   }
 };
