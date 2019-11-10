@@ -1,10 +1,12 @@
 <template>
-  <div class="post-priview border-bottom">
+  <div class="post-priview">
     <nuxt-link :to="postLink">
       <article class="post-priview">
-        <div class="post-thumbnail text-center">
-          <img :src="thumbnail" :alt="image-thumbnail" width="212px" height="auto" />
-          
+        <div
+          class="post-thumbnail text-center"
+          :style="{backgroundImage: 'url(' + thumbnail + ')'}"
+        >
+          <!-- <img :src="thumbnail" :alt="image-thumbnail" width="212px" height="auto" /> -->
           <!-- <img :src="`images/${thumbnail}`" :alt="thumbnail" width="100%" height="auto" /> -->
           <!-- :src="'~/assets/images/' + thumbnail + '.png'" -->
           <!-- ~/assets/images/image-not-found-sm.png -->
@@ -55,3 +57,12 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.post-thumbnail {
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background-size: cover;
+}
+</style>

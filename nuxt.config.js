@@ -19,17 +19,27 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: '#2ecc71', height: '3px', duration:5000 },
+  // test at spa
+  /*
+  loadingIndicator : {
+    name: 'circle',
+    color: '#2ecc71'
+  },
+  */
   /*
   ** Global CSS
   */
   css: [
-    {src: '~/assets/styles/main.scss', lang: 'scss'}
+    {src: '~/assets/styles/main.scss', lang: 'scss'},
+    {src: '~/assets/styles/animate.scss', lang: 'scss'}
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/global-component.js',
+    '~plugins/date-filter.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -40,8 +50,13 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
-    // Doc: https://bootstrap-vue.js.org/docs/    
+    // Doc: https://bootstrap-vue.js.org/docs/
+    // example extend axios modules 
+    '@nuxtjs/axios'
   ],
+  axios: {
+    baseURL: process.env.BASE_URL || 'https://nuxt-blog-71d4f.firebaseio.com'
+  },
   /*
   ** Build configuration
   */
@@ -51,5 +66,13 @@ export default {
     */
     extend (config, ctx) {
     }
+  },
+  env: {
+    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-71d4f.firebaseio.com' 
+  },
+  transition: {
+    /* class frrom animate.scss */
+    name: 'fade',
+    mode: 'out-in'
   }
 }

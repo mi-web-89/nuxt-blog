@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import PostList from "@/components/post/PostList";
-import AppButton from "@/components/ui/AppButton";
+import PostList from "@/components/post/PostList"
+import AppButton from "@/components/ui/AppButton"
 
 export default {
   layout: 'admin',
@@ -21,6 +21,7 @@ export default {
   },
   computed: {
     loadedPosts() {
+      // console.log('loadedPostAdmin', this.$store.getters.loadedPosts)
       return this.$store.getters.loadedPosts
     }
   }
