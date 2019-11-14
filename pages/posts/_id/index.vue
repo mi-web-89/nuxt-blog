@@ -28,7 +28,7 @@ export default {
     //example extend modules axios
     return context.app.$axios.$get("/posts/" + context.params.id + ".json")
       .then(data => {
-        console.log('fetchSingle', data)
+        // console.log('fetchSingle', data)
         return { loadedPost : data }
       })
       .catch(e => context.error(e));

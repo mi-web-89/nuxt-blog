@@ -68,11 +68,15 @@ export default {
     }
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-71d4f.firebaseio.com' 
+    baseUrl: process.env.BASE_URL || 'https://nuxt-blog-71d4f.firebaseio.com',
+    firebaseKey: 'AIzaSyCoC_uUdyG3Svr-Hz_30EtUWmuUH5Vb2Z0'
   },
-  transition: {
-    /* class frrom animate.scss */
-    name: 'fade',
-    mode: 'out-in'
+  // transition: {
+  //   /* class frrom animate.scss */
+  //   name: 'fade',
+  //   mode: 'out-in'
+  // }, 
+  router: {
+    middleware: ['log'] /*example middleware on page*/
   }
 }

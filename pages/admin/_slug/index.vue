@@ -10,14 +10,15 @@ import axios from 'axios'
 
 export default {
   layout: 'admin',
+  middleware: ['checkAuth', 'auth'],
   components: {
      AdminPostForm
   },
   asyncData(context) {
-    console.log('contextParamsid', context.params.slug)
+    // console.log('contextParamsid', context.params.slug)
     return axios.get(process.env.baseUrl + '/posts/' + context.params.slug + '.json')
     .then(res => {
-      console.log('resData', res.data)
+      // console.log('resData', res.data)
       return { 
         loadedPost : {
           ...res.data

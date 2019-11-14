@@ -14,6 +14,7 @@
 // import PostList from "@/components/post/PostList"  /* global component */
 
 export default {
+  // middleware: ['log'], /*example middleware on page*/
   components: {
     // PostList  /* global component */
   },
