@@ -2,6 +2,7 @@
   <div class="admin-page">
     <div class="border-bottom text-center pt-2 pb-2 mb-2">
      <app-button @click="$router.push('/admin/new-post')">create page</app-button>
+     <app-button @click="onLogout">Logout</app-button>
     </div>
     <div class="container">
       <post-list isAdmin :posts="loadedPosts"></post-list>
@@ -24,6 +25,12 @@ export default {
     loadedPosts() {
       // console.log('loadedPostAdmin', this.$store.getters.loadedPosts)
       return this.$store.getters.loadedPosts
+    }
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch('logout')
+      this.$router.push('admin/auth')
     }
   }
 };
