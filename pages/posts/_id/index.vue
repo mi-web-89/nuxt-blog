@@ -25,6 +25,7 @@ import axios from "axios";
 export default {
   //single data
   asyncData(context) {
+    console.log('asyncData')
     return axios.get("https://nuxt-blog-71d4f.firebaseio.com/posts/" + context.params.id + ".json")
       .then(res => {
         console.log('fetchSingle', res.data)

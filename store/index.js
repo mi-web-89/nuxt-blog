@@ -15,7 +15,7 @@ const createStore = () => {
       // asyncData by nuxt.js
       nuxtServerInit(vuexContext, context) {
         //check proses on client or not
-        if(!process.client) {
+        if(process.client) {
           console.log('process_server', context.req)
         }
         
