@@ -39,7 +39,7 @@ export default {
   methods: {
     onSave() {
       // save the post
-      console.log('editedPost', this.editedPost)
+      // console.log('editedPost', this.editedPost)
       this.$emit('submit', this.editedPost)
     },
     onCancel() {

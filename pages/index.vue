@@ -11,40 +11,46 @@
 </template>
 
 <script>
-import PostList from "@/components/post/PostList"
+// import PostList from "@/components/post/PostList"  /* global component */
 
 export default {
+  // middleware: ['log'], /*example middleware on page*/
   components: {
-    PostList
+    // PostList  /* global component */
   },
   computed: {
     posts () {
       return this.$store.getters.loadedPosts
     }
+  },
+  head: {
+    title: 'WD-BLOG'
   }
 
+  /*
   // must be promised, using callback for tricky promise
-  // asyncData(context, callback) { 
-    // console.log("asyncData is executed")
-    // console.log(context)
-  //   setTimeout(() => {
-  //    // callback : fist param is error => 
-  //    // when promise get error: catch(err => {context.error(new Error)})
-  //    callback(null, { //write data here
-  //      posts: [
-  //         {
-  //           id: "1",
-  //           title: "Title 1",
-  //           thumbnail: "image-not-found-sm.png",
-  //           previewText:
-  //             "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus assumenda \ 
-  //              error quas deleniti eius? Suscipit, numquam? Quis aliquid non animi numquam amet voluptas dolorum \ 
-  //              sunt aspernatur commodi?"
-  //         }         
-  //      ]
-  //     })
-  //   }, 1500)
-  // }
+  asyncData(context, callback) { 
+    console.log("asyncData is executed")
+    console.log(context)
+    setTimeout(() => {
+     // callback : fist param is error => 
+     // when promise get error: catch(err => {context.error(new Error)})
+     callback(null, { //write data here
+       posts: [
+          {
+            id: "1",
+            title: "Title 1",
+            thumbnail: "image-not-found-sm.png",
+            previewText:
+              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus assumenda \ 
+               error quas deleniti eius? Suscipit, numquam? Quis aliquid non animi numquam amet voluptas dolorum \ 
+               sunt aspernatur commodi?"
+          }         
+       ]
+      })
+    }, 1500)
+  }
+  */
 };
 </script>
 

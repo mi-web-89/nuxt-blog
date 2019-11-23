@@ -1,7 +1,7 @@
 <template>
   <section class="featured-posts row">
       <postPreview
-        class="col-12 col-md-4"
+        class="col-12 col-md-4 mt-4"
         v-for="post in posts"
         :key= post.id
         :id="post.id"
