@@ -1,3 +1,5 @@
+// const pkg = require('./package')
+const bodyParser = require('body-parser')
 
 export default {
   mode: 'universal',
@@ -71,12 +73,17 @@ export default {
     baseUrl: process.env.BASE_URL || 'https://nuxt-blog-71d4f.firebaseio.com',
     firebaseKey: 'AIzaSyCoC_uUdyG3Svr-Hz_30EtUWmuUH5Vb2Z0'
   },
-  // transition: {
-  //   /* class frrom animate.scss */
-  //   name: 'fade',
-  //   mode: 'out-in'
-  // }, 
+  transition: {
+    /* class frrom animate.scss */
+    name: 'fade',
+    mode: 'out-in'
+  }, 
   router: {
     middleware: ['log'] /*example middleware on page*/
-  }
+  },
+  /* run berfore nuxt processed */
+  serverMiddleware: [
+    bodyParser.json(),
+    '~/api'
+  ]
 }
