@@ -1,7 +1,7 @@
 import Vue from 'vue'
-
-// component
+import { ValidationProvider, ValidationObserver} from 'vee-validate'
 import PostList from '@/components/post/PostList'
 
-// init
+Vue.component('validation-provider', ValidationProvider)
+Vue.component('validation-observer', ValidationObserver)
 Vue.component('PostList', PostList)

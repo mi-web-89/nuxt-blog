@@ -11,13 +11,13 @@
 </template>
 
 <script>
-// import PostList from "@/components/post/PostList"  /* global component */
+/* 
+global component 
+import PostList from "@/components/post/PostList"   
+*/
 
 export default {
-  // middleware: ['log'], /*example middleware on page*/
-  components: {
-    // PostList  /* global component */
-  },
+  /* middleware: ['log'], example middleware on page*/
   computed: {
     posts () {
       return this.$store.getters.loadedPosts
@@ -28,30 +28,12 @@ export default {
   }
 
   /*
-  // must be promised, using callback for tricky promise
+  must be promised, using callback for tricky promise
   asyncData(context, callback) { 
-    console.log("asyncData is executed")
     console.log(context)
-    setTimeout(() => {
-     // callback : fist param is error => 
-     // when promise get error: catch(err => {context.error(new Error)})
-     callback(null, { //write data here
-       posts: [
-          {
-            id: "1",
-            title: "Title 1",
-            thumbnail: "image-not-found-sm.png",
-            previewText:
-              "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam officiis ab voluptatibus assumenda \ 
-               error quas deleniti eius? Suscipit, numquam? Quis aliquid non animi numquam amet voluptas dolorum \ 
-               sunt aspernatur commodi?"
-          }         
-       ]
-      })
-    }, 1500)
   }
   */
-};
+}
 </script>
 
 <style lang="scss">
@@ -60,7 +42,6 @@ export default {
   padding: 30px;
   position: relative;
   border: solid 1px #ccc;
-  // margin-top: 0.5rem;
   margin-bottom: 1rem;
   background-image: url("../assets/images/startup-entrepreneur.png");
   background-position: center;

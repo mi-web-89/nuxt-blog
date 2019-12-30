@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: process.env.npm_package_name || 'blog',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -19,8 +19,7 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#2ecc71', height: '3px', duration:5000 },
-  // test at spa
+  loading: { color: '#2ecc71', height: '3px', duration: 5000 },
   /*
   loadingIndicator : {
     name: 'circle',
@@ -38,8 +37,8 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~plugins/global-component.js',
-    '~plugins/date-filter.js'
+    '~plugins/date-filter.js',
+    '~plugins/global-component.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -52,7 +51,29 @@ export default {
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
     // example extend axios modules 
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          {
+            name: 'Indonesia',
+            code: 'id',
+            iso: 'id-ID',
+            file: 'id.js'
+          },
+          {
+            name: 'English',
+            code: 'en',
+            iso: 'en-US',
+            file: 'en.js'
+          }
+        ],
+        lazy: true,
+        langDir: 'lang/',
+        defaultLocale: 'id'
+      }
+    ]
   ],
   axios: {
     baseURL: process.env.BASE_URL || 'https://nuxt-blog-71d4f.firebaseio.com'
@@ -71,11 +92,13 @@ export default {
     baseUrl: process.env.BASE_URL || 'https://nuxt-blog-71d4f.firebaseio.com',
     firebaseKey: 'AIzaSyCoC_uUdyG3Svr-Hz_30EtUWmuUH5Vb2Z0'
   },
-  // transition: {
-  //   /* class frrom animate.scss */
-  //   name: 'fade',
-  //   mode: 'out-in'
-  // }, 
+  /* class frrom animate.scss */
+  /*
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
+  }, 
+  */
   router: {
     middleware: ['log'] /*example middleware on page*/
   }

@@ -1,31 +1,42 @@
 <template>
   <div class="admin-auth-page">
     <div class="auth-container">
-      <form @submit.prevent="onSubmit">
-        <AppControlInput type="email" v-model="email">E-Mail Address</AppControlInput>
-        <AppControlInput type="password" v-model="password">Password</AppControlInput>
-        <AppButton type="submit">{{ isLogin ? 'Login' : 'Sign Up' }}</AppButton>
-        <AppButton
-          type="button"
-          btn-style="inverted"
-          style="margin-left: 10px"
-          @click="isLogin = !isLogin"
-        >Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>
-      </form>
+      <validation-observer v-slot="{ passes }">
+        <form @submit.prevent="passes(onSubmit)">
+          <!-- <AppControlInput type="email" v-model="email">E-Mail Address</AppControlInput> -->
+          <!-- <AppControlInput type="password" v-model="password">Password</AppControlInput> -->
+          <TextInput rules="required|email" label="Email Address" name="email" />
+          <AppButton type="submit">
+            {{ isLogin ? 'Login' : 'Sign Up' }}
+          </AppButton>
+          <AppButton
+            type="button"
+            btn-style="inverted"
+            style="margin-left: 10px"
+            @click="isLogin = !isLogin"
+          > Switch to {{ isLogin ? 'Signup' : 'Login' }}
+          </AppButton>
+        </form>
+      </validation-observer>
     </div>
   </div>
 </template>
 
 <script>
+// import { ValidationObserver } from "vee-validate";
 import AppControlInput from "@/components/UI/AppControlInput";
 import AppButton from "@/components/UI/AppButton";
+import TextInput from "@/components/controls/TextInput";
+
 
 export default {
   name: "AdminAuthPage",
   layout: "admin",
   components: {
     AppControlInput,
-    AppButton
+    AppButton,
+    // ValidationObserver,
+    TextInput
   },
   data() {
     return {
@@ -60,7 +71,7 @@ export default {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 2px 2px #ccc;
-  width: 300px;
+  width: 320px;
   margin: auto;
   padding: 10px;
   box-sizing: border-box;

@@ -157,7 +157,6 @@ const createStore = () => {
           vuexContext.dispatch('logout')
           return
         }
-
         vuexContext.commit('setToken', token)
         // vuexContext.dispatch('setLogoutTimer', +expirationDate - new Date().getTime())
       },

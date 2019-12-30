@@ -9,13 +9,13 @@
       <div class="navigation-items">
         <ul class="nav-list">
           <li class="nav-item">
-            <nuxt-link to="/posts">Blog</nuxt-link>
+            <nuxt-link to="/posts">{{ $t('nav.blog') }}</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/about">About</nuxt-link>
+            <nuxt-link to="/about">{{ $t('nav.about') }}</nuxt-link>
           </li>
           <li class="nav-item">
-            <nuxt-link to="/admin">Admin</nuxt-link>
+            <nuxt-link to="/admin">{{ $t('nav.admin') }}</nuxt-link>
           </li>
         </ul>
       </div>

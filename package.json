@@ -1,5 +1,5 @@
 {
-  "name": "try-nuxt",
+  "name": "Blog",
   "version": "1.0.0",
   "description": "",
   "author": "mi-web-89",
@@ -16,7 +16,9 @@
     "js-cookie": "^2.2.1",
     "node-sass": "^4.12.0",
     "nuxt": "^2.0.0",
-    "sass-loader": "^8.0.0"
+    "nuxt-i18n": "^6.4.1",
+    "sass-loader": "^8.0.0",
+    "vee-validate": "^3.2.1"
   },
   "devDependencies": {}
 }
