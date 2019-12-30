@@ -1,3 +1,5 @@
+// example modular store
+
 const api = {
   login: "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" + process.env.firebaseKey,
   signUp: 'https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + process.env.firebaseKey

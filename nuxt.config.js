@@ -1,3 +1,5 @@
+// const pkg = require('./package')
+const bodyParser = require('body-parser')
 
 export default {
   mode: 'universal',
@@ -101,5 +103,10 @@ export default {
   */
   router: {
     middleware: ['log'] /*example middleware on page*/
-  }
+  },
+  /* run berfore nuxt processed */
+  serverMiddleware: [
+    bodyParser.json(),
+    '~/api'
+  ]
 }
