@@ -1,11 +1,12 @@
 <template>
   <div class="admin-auth-page">
     <div class="auth-container">
-      <validation-observer v-slot="{ passes }">
-        <form @submit.prevent="passes(onSubmit)">
-          <!-- <AppControlInput type="email" v-model="email">E-Mail Address</AppControlInput> -->
-          <!-- <AppControlInput type="password" v-model="password">Password</AppControlInput> -->
-          <TextInput rules="required|email" label="Email Address" name="email" />
+      <!-- <validation-observer v-slot="{ passes }"> -->
+        <!-- <form @submit.prevent="passes(onSubmit)"> -->
+        <form @submit.prevent="onSubmit">
+          <AppControlInput type="email" v-model="username">E-Mail Address</AppControlInput>
+          <AppControlInput type="password" v-model="password">Password</AppControlInput>
+          <!-- <TextInput rules="required|phone" v-model="username" label="Phone/Email" name='email/phone' /> -->
           <AppButton type="submit">
             {{ isLogin ? 'Login' : 'Sign Up' }}
           </AppButton>
@@ -17,7 +18,7 @@
           > Switch to {{ isLogin ? 'Signup' : 'Login' }}
           </AppButton>
         </form>
-      </validation-observer>
+      <!-- </validation-observer> -->
     </div>
   </div>
 </template>
@@ -27,7 +28,6 @@
 import AppControlInput from "@/components/UI/AppControlInput";
 import AppButton from "@/components/UI/AppButton";
 import TextInput from "@/components/controls/TextInput";
-
 
 export default {
   name: "AdminAuthPage",
@@ -41,16 +41,16 @@ export default {
   data() {
     return {
       isLogin: true,
-      email: null,
+      username: null,
       password: null
     };
   },
   methods: {
     onSubmit() {
+       console.log('injected >>', this.$validatePhone(this.username))
       //----------- no validation ----------
-      
       this.$store.dispatch('authUser', {
-        email: this.email,
+        email: this.username,
         password: this.password,
         isLogin: this.isLogin
       })

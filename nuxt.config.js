@@ -40,7 +40,8 @@ export default {
   */
   plugins: [
     '~plugins/date-filter.js',
-    '~plugins/global-component.js'
+    '~plugins/global-component.js',
+    {src: '~plugins/vee-validate.js', ssr: false}
   ],
   /*
   ** Nuxt.js dev-modules
