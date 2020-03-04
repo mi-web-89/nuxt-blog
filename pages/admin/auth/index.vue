@@ -25,9 +25,9 @@
 
 <script>
 // import { ValidationObserver } from "vee-validate";
-import AppControlInput from "@/components/UI/AppControlInput";
-import AppButton from "@/components/UI/AppButton";
-import TextInput from "@/components/controls/TextInput";
+import AppControlInput from "@/components/ui/AppControlInput";
+import AppButton from "@/components/ui/AppButton";
+import Input from "@/components/controls/Input";
 
 export default {
   name: "AdminAuthPage",
@@ -36,7 +36,7 @@ export default {
     AppControlInput,
     AppButton,
     // ValidationObserver,
-    TextInput
+    Input
   },
   data() {
     return {
@@ -47,8 +47,6 @@ export default {
   },
   methods: {
     onSubmit() {
-       console.log('injected >>', this.$validatePhone(this.username))
-      //----------- no validation ----------
       this.$store.dispatch('authUser', {
         email: this.username,
         password: this.password,

@@ -1,6 +1,6 @@
 export default {
   nav : {
-    blog: 'blog',
+    blog: 'artikel',
     about: 'tentang',
     admin: 'admin'
   }
